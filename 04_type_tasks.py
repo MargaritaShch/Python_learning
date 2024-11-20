@@ -62,18 +62,20 @@ elif oper == '*':
 elif oper == '/':
         if num2 == 0:
                 print('Деление на ноль невозможно.')
+                exit()
         else:
                 result = num1 / num2
 elif oper == '%':
         if num2 == 0:
                 print('Деление на ноль невозможно.')
+                exit()
+
         else:
                 result = num1 % num2
 else:
         print("Неверная операция.")
         exit()
         
-
 print(f"Результат: {round(result, 2)}")
         
 
