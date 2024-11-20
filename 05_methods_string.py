@@ -86,12 +86,67 @@
 # How to write a program in Python
 # Формат вывода
 # Созданный URL: https://www.mycoolsyte.com/articles/how-to-write-a-program-in-python
-print("Task 13 ======================================")
-input_site = input()
-input_titile = input()
-input_title_change = input_titile.lower().replace(' ', '-')
-input_site_change = input_site.lower()
+# print("Task 13 ======================================")
+# input_site = input()
+# input_titile = input()
+# input_title_change = input_titile.lower().replace(' ', '-')
+# input_site_change = input_site.lower()
 
-site = 'https://www.mycoolsyte.com'
-url = f"{site}/{input_site_change}/{input_title_change}"
-print(f"Созданный URL: {url}")
+# site = 'https://www.mycoolsyte.com'
+# url = f"{site}/{input_site_change}/{input_title_change}"
+# print(f"Созданный URL: {url}")
+
+#14.Напишите программу, которая принимает пароль в качестве входных данных с терминала и проверяет его сложность, проверяя на следующие условия:
+# Длина: Пароль должен быть не менее 8 символов. Если длина пароля меньше 8 символов, он считается слабым.
+# Критерии сложности: Пароль должен содержать хотя бы один символ из каждого из следующих типов:
+# Прописные буквы (A-Z)
+# Строчные буквы (a-z)
+# Цифры (0-9)
+# Специальные символы (!@#$%^&*(),.?":{}|<>)
+# Вывод:
+
+# Программа должна выводить одну из следующих оценок:
+
+# "Сильный пароль": Пароль удовлетворяет 4 критериям сложности.
+# "Средний пароль": Пароль удовлетворяет 3 из 4 критериев сложности.
+# "Слабый пароль": Пароль удовлетворяет менее 3 критериев сложности.
+print("Task 14 ======================================")
+uppercase_letters = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  
+lowercase_letters = [chr(i) for i in range(ord('a'), ord('z') + 1)]  
+digits = [str(i) for i in range(0, 10)]  
+special_characters = list("!@#$%^&*(),.?\":{}|<>")
+
+input_password = input()
+
+if len(input_password) < 8:
+    print("Слабый пароль")
+    exit()
+
+has_uppercase_letters = False
+has_lowercase_letters = False
+has_digits = False
+has_special_characters = False
+
+
+for char in input_password:
+    if char in uppercase_letters:
+        has_uppercase_letters = True
+    if char in lowercase_letters:
+        has_lowercase_letters = True
+    if char in digits:
+        has_digits = True
+    if char in special_characters:
+        has_special_characters = True
+
+result = sum([has_lowercase_letters, has_uppercase_letters, has_digits,has_special_characters])
+
+if result == 4:
+    print("Сильный пароль")
+elif result == 3:
+    print("Средний пароль")
+else:
+    print("Слабый пароль")
+
+
+
+
