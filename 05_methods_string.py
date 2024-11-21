@@ -1,82 +1,86 @@
 # #1. index
-# print("Task 1 ======================================")
-# s = 'abc'[0]
-# print(s)
-# #last symbol
-# s = 'abc'[-1]
-# print(s)
+print("Task 1 ======================================")
+s = 'abc'[0]
+print(s)
+#last symbol
+s = 'abc'[-1]
+print(s)
 
 # #2. len
-# print("Task 2 ======================================")
-# s = ' abc '
-# print(len(s))
-# s = ' abc '[-1]
-# print(s)
+print("Task 2 ======================================")
+s = ' abc '
+print(len(s))
+s = ' abc '[-1]
+print(s)
 
 # #3. срез строк
-# print("Task 3 ======================================")
-# s = 'abc'[0:-1]
-# print(s)
+print("Task 3 ======================================")
+s = 'abc'[0:-1]
+print(s)
 
-# s = 'abc'[:2]
-# print(s)
+s = 'abc'[:2]
+print(s)
 
-# s = 'abc'[-1:-2]
-# print(s)
+s = 'abc'[-1:-2]
+print(s)
 
 # #4. 
-# print("Task 4 ======================================")
-# s = 'hello world'[1:4]
-# print(s)
+print("Task 4 ======================================")
+s = 'hello world'[1:4]
+print(s)
 # #5. 
-# print("Task 5 ======================================")
-# s = 'python'[-3:]
-# print(s)
-# #6. 
-# print("Task 6 ======================================")
-# s = 'abcdefg'[::2]
-# print(s)
+
+print("Task 5 ======================================")
+s = 'python'[-3:]
+print(s)
+#6. 
+print("Task 6 ======================================")
+s = 'abcdefg'[::2]
+print(s)
+
 # #7. конкатенация
-# print("Task 7 ======================================")
-# print("Помни " + "о " + '''пробелах''')
+print("Task 7 ======================================")
+print("Помни " + "о " + '''пробелах''')
+
 # #8. умножение строк
-# print("Task 8 ======================================")
-# s ="asd"
-# print(2*s)
-# print(s*2)
+print("Task 8 ======================================")
+s ="asd"
+print(2*s)
+print(s*2)
+
 # #9. форматирование строк 
 # #оператор %
-# print("Task 9 ======================================")
-# name ="Peter"
-# print('Hello, %s!' % name)
+print("Task 9 ======================================")
+name ="Peter"
+print('Hello, %s!' % name)
 # #format()
-# name ="Jhon"
-# print('Hello, {}!'.format(name))
+name ="Jhon"
+print('Hello, {}!'.format(name))
 # #F-строки
-# name = "Eric Idle"
-# age = 74
-# profession = "comedian"
-# affiliation = "Monty Python"
+name = "Eric Idle"
+age = 74
+profession = "comedian"
+affiliation = "Monty Python"
 
-# print(f"Hello, {name}. You are {age}.")
-# print(f"{2*5}")
-# print(f"{name.lower()} is funny")
+print(f"Hello, {name}. You are {age}.")
+print(f"{2*5}")
+print(f"{name.lower()} is funny")
 
 # #10.split разбиение строки по разделителю
-# print("Task 10 ======================================")
-# str = "adcf adcd dcfd"
-# print(str.split())
+print("Task 10 ======================================")
+str = "adcf adcd dcfd"
+print(str.split())
 
 # #11.join превращение спика строк в одно строку
-# print("Task 11 ======================================")
-# arr = ['adcf', 'adcd', 'dcfd']
-# print(" ".join(arr))
+print("Task 11 ======================================")
+arr = ['adcf', 'adcd', 'dcfd']
+print(" ".join(arr))
 
 # #12.replace замена подстроки на заданную строку в строке
-# print("Task 12 ======================================")
-# str = 'adcfdcfd'
-# print(str.replace('cf', 'Y'))
-# print(str.replace('cf', 'Z', 6))
+print("Task 12 ======================================")
+str = 'adcfdcfd'
+print(str.replace('cf', 'Y'))
+print(str.replace('cf', 'Z', 6))
 
 #13. С клавиатуры вводится две строки:Раздел сайта (например, "articles", "blog", "news")
 # Заголовок статьи (например, "How to write a program in Python"). Заголовок статьи не содержит знаков препинания.
@@ -86,15 +90,15 @@
 # How to write a program in Python
 # Формат вывода
 # Созданный URL: https://www.mycoolsyte.com/articles/how-to-write-a-program-in-python
-# print("Task 13 ======================================")
-# input_site = input()
-# input_titile = input()
-# input_title_change = input_titile.lower().replace(' ', '-')
-# input_site_change = input_site.lower()
+print("Task 13 ======================================")
+input_site = input()
+input_titile = input()
+input_title_change = input_titile.lower().replace(' ', '-')
+input_site_change = input_site.lower()
 
-# site = 'https://www.mycoolsyte.com'
-# url = f"{site}/{input_site_change}/{input_title_change}"
-# print(f"Созданный URL: {url}")
+site = 'https://www.mycoolsyte.com'
+url = f"{site}/{input_site_change}/{input_title_change}"
+print(f"Созданный URL: {url}")
 
 #14.Напишите программу, которая принимает пароль в качестве входных данных с терминала и проверяет его сложность, проверяя на следующие условия:
 # Длина: Пароль должен быть не менее 8 символов. Если длина пароля меньше 8 символов, он считается слабым.
@@ -147,6 +151,25 @@ elif result == 3:
 else:
     print("Слабый пароль")
 
+#15. Напишите программу на Python, которая принимает на вход два слова и определяет, являются ли эти слова анаграммами друг друга (регистр букв игнорируется). Анаграмма - это слово или фраза, образованные перестановкой букв другого слова или фразы. Например, "listen" и "silent" являются анаграммами друг друга, так как они состоят из одних и тех же букв, расположенных в другом порядке.
+# Программа должна выводить результат в виде сообщения "Слова являются анаграммами." или "Слова не являются анаграммами.".
+# Формат ввода
+# listen
+# silent
+
+#  Формат вывода
+# Слова являются анаграммами.
+
+#  Примечания
+# Количество одинаковых букв в словах должно быть одинаковым для того, чтобы они считались анаграммами. Например, слова "aabba" и "aabbb" не являются анаграммами, так как в первом слове две буквы "a", а во втором - три.
+print("Task 15 ======================================")
+input_first = input().lower()
+input_second = input().lower()
+
+if sorted(input_first) == sorted(input_second):
+    print('Слова являются анаграммами.')
+else:
+    print('Слова не являются анаграммами.')
 
 
 
