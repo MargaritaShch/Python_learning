@@ -13,3 +13,19 @@ nums3 = [1]
 print(find_unic_num(nums1))
 print(find_unic_num(nums2))
 print(find_unic_num(nums3))
+
+#2.
+print("Task 2 ======================================")
+def bin_list(n):
+    arr = list(range(n+1))
+    for i in range(len(arr)):
+        arr[i] = bin(arr[i]).count('1')
+    return arr
+
+num1 = 5
+num2 = 2
+num3 = 4
+
+print(bin_list(num1))
+print(bin_list(num2))
+print(bin_list(num3))
