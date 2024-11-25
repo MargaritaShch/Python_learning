@@ -74,3 +74,18 @@ print(a)
 x = time.time()
 print(x)
 
+#7. Task 7
+print("Task 7 ======================================")
+from datetime import datetime, timedelta
+# С клавиатуры вводится дата в формате DD-MM-YYYY. Нужно вывести дату начала недели, к которой относится введенная дата (дата понедельника недели), в таком же формате. z
+# Формат ввода
+# 22-09-2022
+
+# Формат вывода
+# 19-09-2022
+# Примечания
+# Если введен понедельник - нужно вывести его же.
+input_date = input()
+date = datetime.strptime(input_date, '%d-%m-%Y')
+monday = date - timedelta(days = date.weekday())
+print(monday.strftime('%d-%m-%Y'))
