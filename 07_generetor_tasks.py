@@ -41,5 +41,6 @@ print(a)
 
 for i in a:
     print(i)
+#не выполнится
 for i in a:
     print(i)
