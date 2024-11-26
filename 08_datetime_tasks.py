@@ -89,3 +89,63 @@ input_date = input()
 date = datetime.strptime(input_date, '%d-%m-%Y')
 monday = date - timedelta(days = date.weekday())
 print(monday.strftime('%d-%m-%Y'))
+
+#8. Task 8
+print("Task 8 ======================================")
+# Даты. Разница между датами
+# Напишите программу, которая принимает на вход две строки:
+# Первая дата в формате "ГГГГ-ММ-ДД".
+# Вторая дата в формате "ГГГГ-ММ-ДД".
+# Программа должна рассчитать количество полных лет между датами, и корректно отобразить результат, учитывая склонения (год, года, лет). Обе даты лежат в диапазоне с 1900 по 2024 год включительно. Вторая дата больше первой минимум на один год.
+# Формат ввода
+# 1990-01-01
+# 1993-09-15
+# Формат вывода
+# 3 года
+def get_year_word(years):
+    if years % 10 == 1 and years % 100 != 11:
+        return "год"
+    elif 2 <= years % 10 <= 4 and not (12 <= years % 100 <= 14):
+        return "года"
+    else:
+        return "лет"
+    
+input_date1 = input()
+input_date2 = input()
+
+date1 = datetime.strptime(input_date1, "%Y-%m-%d")
+date2 = datetime.strptime(input_date2, "%Y-%m-%d")
+
+if date2 <= date1:
+    print("Вторая дата должна быть больше первой минимум на год")
+else:
+    years_difference = date2.year - date1.year
+    if (date2.month, date2.day) < (date1.month, date1.day):
+        years_difference -= 1
+
+    word = get_year_word(years_difference)
+    print(f"{years_difference} {word}")
+
+#8. Task 9
+print("Task 9 ======================================")
+days_ru = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+days_en = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+input_date = input()  
+input_language = input() 
+
+try:
+    date = datetime.strptime(input_date, "%d-%m-%Y")
+except ValueError:
+    print("Некорректный формат даты")
+    exit()
+
+day_of_week = date.weekday()  
+
+
+if input_language == "ru":
+    print(f"День недели - {days_ru[day_of_week]}")
+elif input_language == "en":
+    print(f"Day of the week - {days_en[day_of_week]}")
+else:
+    print("Непонятный язык")
