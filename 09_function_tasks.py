@@ -55,3 +55,21 @@ print(remaining)
 
 first, *remaining = fruits
 print(remaining)
+
+print((*fruits[1:], fruits[0]))
+
+#** - развернуть словарь
+date_info = {'year': '2020', 'month': '01', 'day': '01' }
+track_info = {'artist' : "Beethoven", 'title': 'Symphony No 5'}
+all_info = {**date_info, **track_info}
+print(all_info)
+
+#5. Anon functions
+print("Task 5 ======================================")
+
+func = lambda x, y: x+y
+print(func(1,2))
+print(func('a', 'b'))
+
+print((lambda x, y: x+y)(2,3))
+
