@@ -1,0 +1,21 @@
+list1:
+- 1
+- 2
+- 3
+- 4
+- 5
+- hello
+- world
+- true
+- false
+list2:
+- - 10
+  - 20
+  - 30
+- !!python/tuple
+  - a
+  - b
+  - c
+- 42
+- 3.14
+- example
