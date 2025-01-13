@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+from api import register_booking 
 #Syntax Error
 print("Task 1======================================")
 # print(0/0))
@@ -207,3 +209,75 @@ for i in range(10):
 with open("21_exception_log.txt", "r") as f:
     print(f.read())
 
+print("Task 12======================================")
+class Booking:
+    def __init__(self, room_name, start, end):
+        if end<=start:
+            raise ValueError("End tome must be after start time")
+        
+        self.room_name = room_name
+        self._start = start
+        self.end = end
+
+    @property
+    def duration(self):
+        return int((self.end - self.start).total_seconds() // 60)
+    
+    @property
+    def start_date(self):
+        return self.start.strftime("%Y-%m-%d")
+    
+    @property
+    def end_date(self):
+        return self.end.strftime("%Y-%m-%d")
+
+    @property
+    def start_time(self):
+        return self.start.strftime("%H:%M")
+    
+    @property
+    def end_time(self):
+        return self.end.strftime("%H:%M")
+    
+    @property
+    def create_booking(room_name, start, end):
+        print("Начинаем создание бронирования")
+        try:
+            booking = Booking(room_name, start, end)
+            result = register_booking(booking)
+
+            if result is True:
+                msg = "Бронирование создано"
+                created = True
+            elif result is False:
+                msg = "Комната занята"
+                created = False
+            else:
+                raise ValueError("Unexpected result from registr_booking")
+        except KeyError:
+            msg = "Комната найдена"
+            created = False
+        except ValueError as ve:
+            msg = str(ve)
+            created = False
+        finally:
+            print("Заканчиваем создание бронирования")
+        
+        booking_data = {
+            "room_name": room_name,
+            "start_date": start.strftime("%Y-%m-%d"),
+            "start_time": start.strftime("%H:%M"),
+            "end_date": end.strftime("%Y-%m-%d"),
+            "end_time": end.strftime("%H:%M"),
+            "duration": int((end - start).total_seconds() // 60),
+        }
+
+        return json.dumps({
+            "created": created,
+            "msg": msg,
+            "booking": booking_data,
+        }, ensure_ascii=False, indent=2)
+
+
+
+        
