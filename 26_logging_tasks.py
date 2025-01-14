@@ -1,41 +1,41 @@
 #Logging
 import logging
 print("Task 1 ======================================")
-# print(logging.basicConfig(level=logging.DEBUG))
-# print(logging.debug("Сообщение для отладки"))
-# print(logging.info("Сообщение обыкновенное информационнная"))
-# print(logging.warning("Предупреждение"))
-# print(logging.error("Ошибка"))
-# print(logging.critical("Полный крах"))
+print(logging.basicConfig(level=logging.DEBUG))
+print(logging.debug("Сообщение для отладки"))
+print(logging.info("Сообщение обыкновенное информационнная"))
+print(logging.warning("Предупреждение"))
+print(logging.error("Ошибка"))
+print(logging.critical("Полный крах"))
 
 print("Task 2 ======================================")
-# print(logging.basicConfig(
-#     format='%(filename)s[LINE:%(lineno)d]# %(levelname) - 8s [%(asctime)s] %(message)s',
-#     level=logging.DEBUG
-# ))
-# print(logging.debug("Сообщение для отладки"))
-# print(logging.info("Сообщение обыкновенное информационнная"))
-# print(logging.warning("Предупреждение"))
-# print(logging.error("Ошибка"))
-# print(logging.critical("Полный крах"))
+print(logging.basicConfig(
+    format='%(filename)s[LINE:%(lineno)d]# %(levelname) - 8s [%(asctime)s] %(message)s',
+    level=logging.DEBUG
+))
+print(logging.debug("Сообщение для отладки"))
+print(logging.info("Сообщение обыкновенное информационнная"))
+print(logging.warning("Предупреждение"))
+print(logging.error("Ошибка"))
+print(logging.critical("Полный крах"))
 
 #add to file
 print("Task 3 ======================================")
-# print(logging.basicConfig(
-#     format='%(filename)s[LINE:%(lineno)d]# %(levelname) - 8s [%(asctime)s] %(message)s',
-#     level=logging.DEBUG,
-#     filename="log.txt",
-#     filemode="w"
-# ))
+print(logging.basicConfig(
+    format='%(filename)s[LINE:%(lineno)d]# %(levelname) - 8s [%(asctime)s] %(message)s',
+    level=logging.DEBUG,
+    filename="log.txt",
+    filemode="w"
+))
 
-# print(logging.debug("Сообщение для отладки"))
-# print(logging.info("Сообщение обыкновенное информационнная"))
-# print(logging.warning("Предупреждение"))
-# print(logging.error("Ошибка"))
-# print(logging.critical("Полный крах"))
+print(logging.debug("Сообщение для отладки"))
+print(logging.info("Сообщение обыкновенное информационнная"))
+print(logging.warning("Предупреждение"))
+print(logging.error("Ошибка"))
+print(logging.critical("Полный крах"))
 
-# with open("log.txt") as f:
-#     print(f.read())
+with open("log.txt") as f:
+    print(f.read())
 
 #few loggers
 print("Task 4 ======================================")
