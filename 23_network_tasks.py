@@ -100,3 +100,48 @@ if r.status_code == 200:
     with open("get_query_result.txt", "wb")  as f:
         r.raw.decode_content = True
         shutil.copyfileobj(r.raw, f)
+
+print("Task 10======================================")
+BASE_URL = "https://jsonplaceholder.typicode.com"
+USERS_URL = f"{BASE_URL}/users"
+POSTS_URL = f"{BASE_URL}/posts"
+COMMENTS_URL = f"{BASE_URL}/comments"
+WEBHOOK_URL = "https://webhook.site/e3673057-de6c-433b-a14a-fd2649aed134"
+
+def process_user_data():
+    print("Сбор данных о пользователях...")
+    
+    users_response = requests.get(USERS_URL)
+    users = users_response.json()
+
+    posts_response = requests.get(POSTS_URL)
+    posts = posts_response.json()
+
+    comments_response = requests.get(COMMENTS_URL)
+    comments = comments_response.json()
+
+    statistics = []
+
+    for user in users:
+        user_id = user['id']
+        username = user['username']
+        email = user['email']
+
+        user_posts = [post for post in posts if post['userId'] == user_id]
+        user_comments = [comment for comment in comments if comment['email'] == email]
+
+        statistics.append({
+            "id": user_id,
+            "username": username,
+            "email": email,
+            "posts": len(user_posts),
+            "comments": len(user_comments)
+        })
+
+    payload = {
+        "statistics": statistics
+    }
+
+    print("Отправка данных на вебхук...")
+    response = requests.post(WEBHOOK_URL, json=payload)
+    return response
