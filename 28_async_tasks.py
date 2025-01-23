@@ -195,3 +195,78 @@ async def boo():
 
 async def main():
     await asyncio.gather(*[foo(), boo()])
+
+# print("Task 12======================================")
+# async def main():
+#     print(f"{time.ctime()} Hello!")
+#     await asyncio.sleep(1.0)
+#     print(f"{time.ctime()} Goodbye!")
+
+# def get_or_create_loop():
+#     loop = asyncio.get_event_loop()
+#     if loop.is_closed():
+#         loop = asyncio.new_event_loop()
+#         asyncio.set_event_loop(loop)
+#     return loop
+
+# loop = get_or_create_loop()
+# print("Createa loop")
+# loop.create_task(main())
+# print("Created task main and now run loop")
+# loop.run_forever()
+# pending = asyncio.all_tasks(loop=loop)
+# group = asyncio.gather(*pending, return_exceptions = True)
+# print("Gatheres tasks")
+# loop.run_until_complete(group)
+# print(loop.close())
+
+# asyncio.run(main())
+
+# print("Task 13======================================")
+# async def main():
+#     print(f"{time.ctime()} Hello!")
+#     await asyncio.sleep(5)
+#     print(f"{time.ctime()} Goodbye!")
+
+# def blocking():
+#     print("blocking started")
+#     time.sleep(3)
+#     print(f"{time.ctime()} Hello from a thread")
+
+# loop = asyncio.new_event_loop()
+# # asyncio.set_event_loop()
+
+# loop.create_task(main())
+# loop.run_in_executor(None, blocking)
+# loop.run_forever()
+
+# pending = asyncio.all_tasks(loop=loop)
+# group = asyncio.gather(*pending)
+# loop.run_until_complete(group)
+# loop.close()
+
+#корутины
+print("Task 14======================================")
+def x():
+    yield 1
+print(x())
+
+#корутины
+print("Task 15======================================")
+async def main():
+    print(f"{time.ctime()} Hello!")
+    await asyncio.sleep(5)
+    print(f"{time.ctime()} Goodbye!")
+
+
+#корутины
+print("Task 16======================================")
+async def f():
+    return "abc"
+
+coroutine = f()
+try:
+    coroutine.send(None)
+except StopIteration as e:
+    print(e.value)
+
