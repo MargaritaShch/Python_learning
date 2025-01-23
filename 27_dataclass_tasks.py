@@ -50,5 +50,11 @@ class SomeThing:
 
 s = SomeThing(value1=256, value2="abc")
 # s.value2 = "abcde" #dataclasses.FrozenInstanceError:
-
 print(b.value1, a.value2)
+
+#Frozen Data Class: eq, hash, order
+print("Task 5 ======================================")
+@dataclass(eq=True, order=True, unsafe_hash=True)
+class SomeThing:
+    value1: int 
+    value2: str

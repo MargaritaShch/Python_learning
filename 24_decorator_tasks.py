@@ -1,6 +1,7 @@
 from flask import Flask
 from functools import partial, cached_property, wraps
 import statistics
+import time
 #Decorator
 print("Task 1======================================")
 class A:
@@ -361,4 +362,46 @@ print(c.doubled_and_add())
 print(c())
 print(common_decorator(c)())
 
+print("Task 18 ======================================")
+
+def time_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        elipsed_time = round(time.time() - start_time)
+        print(elipsed_time)
+        return result
+    return wrapper
+
+@time_decorator
+def sleep_1_sec():
+    time.sleep(1)
+    print("function")
+    return 25
+
+print("Task 17 ======================================")
+
+def cache_results(func):
+    cache = {}
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        key = (args, frozenset(kwargs.items))
+        if key in cache:
+            print("Резульат взят из кэша")
+            return cache[key]       
         
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        elipsed_time = round(time.time() - start_time)
+        cache[key] = result
+
+        print(f"Выполнено за {elipsed_time} секунды")
+        return result
+    
+    return wrapper
+
+@cache_results
+def slow_function(x):
+    time.sleep(2)
+    return x**2
